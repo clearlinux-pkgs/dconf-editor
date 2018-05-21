@@ -4,7 +4,7 @@
 #
 Name     : dconf-editor
 Version  : 3.28.0
-Release  : 1
+Release  : 2
 URL      : https://download.gnome.org/sources/dconf-editor/3.28/dconf-editor-3.28.0.tar.xz
 Source0  : https://download.gnome.org/sources/dconf-editor/3.28/dconf-editor-3.28.0.tar.xz
 Summary  : No detailed summary available
@@ -22,6 +22,7 @@ BuildRequires : pkgconfig(dconf)
 BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : python3
 BuildRequires : vala
+Patch1: 0001-lookup-for-clearlinux-glib-schemas-cached-in-var.patch
 
 %description
 This is dconf-editor.  It used to be part of the 'dconf' package.
@@ -61,13 +62,14 @@ locales components for the dconf-editor package.
 
 %prep
 %setup -q -n dconf-editor-3.28.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526672678
+export SOURCE_DATE_EPOCH=1526930081
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
