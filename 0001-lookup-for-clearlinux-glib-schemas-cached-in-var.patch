@@ -1,0 +1,25 @@
+From 9791b5b6e4c457209b2a13fb13ca76070906a1c0 Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Mon, 21 May 2018 14:01:46 -0500
+Subject: [PATCH] lookup for clearlinux glib-schemas cached in var
+
+---
+ editor/source-manager.vala | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/editor/source-manager.vala b/editor/source-manager.vala
+index 32e7979..a3bd257 100644
+--- a/editor/source-manager.vala
++++ b/editor/source-manager.vala
+@@ -123,6 +123,8 @@ public class SourceManager : Object
+     {
+         SettingsSchemaSource? source = null;
+         string[] system_data_dirs = GLib.Environment.get_system_data_dirs ();
++        // add schema dir from stateless clearlinux (/var/cache)
++        source = try_prepend_dir(source, Path.build_filename("/var/cache", "glib-2.0", "schemas"));
+         for (int i = system_data_dirs.length - 1; i >= 0; i--)
+             source = try_prepend_dir (source, Path.build_filename (system_data_dirs [i], "glib-2.0", "schemas"));
+         string user_data_dir = GLib.Environment.get_user_data_dir ();
+-- 
+2.17.0
+
