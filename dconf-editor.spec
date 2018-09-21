@@ -4,7 +4,7 @@
 #
 Name     : dconf-editor
 Version  : 3.30.0
-Release  : 3
+Release  : 4
 URL      : https://download.gnome.org/sources/dconf-editor/3.30/dconf-editor-3.30.0.tar.xz
 Source0  : https://download.gnome.org/sources/dconf-editor/3.30/dconf-editor-3.30.0.tar.xz
 Summary  : No detailed summary available
