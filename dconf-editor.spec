@@ -4,7 +4,7 @@
 #
 Name     : dconf-editor
 Version  : 43.0
-Release  : 18
+Release  : 19
 URL      : https://download.gnome.org/sources/dconf-editor/43/dconf-editor-43.0.tar.xz
 Source0  : https://download.gnome.org/sources/dconf-editor/43/dconf-editor-43.0.tar.xz
 Summary  : No detailed summary available
